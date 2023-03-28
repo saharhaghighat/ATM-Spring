@@ -1,4 +1,4 @@
-package com.atmspring.atmspring.Service;
+package com.atmspring.atmspring.service;
 
 import java.io.IOException;
 import java.util.List;

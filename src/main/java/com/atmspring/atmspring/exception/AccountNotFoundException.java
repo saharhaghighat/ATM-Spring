@@ -1,4 +1,4 @@
-package com.atmspring.atmspring.Exception;
+package com.atmspring.atmspring.exception;
 
 
 public class AccountNotFoundException extends RuntimeException {

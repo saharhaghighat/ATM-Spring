@@ -1,8 +1,8 @@
-package com.atmspring.atmspring.Model;
+package com.atmspring.atmspring.model;
 
-import com.atmspring.atmspring.Exception.InvalidAmountException;
-import com.atmspring.atmspring.Model.Enums.AccountType;
-import com.atmspring.atmspring.Model.Enums.TransactionType;
+import com.atmspring.atmspring.exception.InvalidAmountException;
+import com.atmspring.atmspring.model.Enums.AccountType;
+import com.atmspring.atmspring.model.Enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.atmspring.atmspring.Exception;
+package com.atmspring.atmspring.exception;
 
 import com.atmspring.atmspring.utill.Method;
 

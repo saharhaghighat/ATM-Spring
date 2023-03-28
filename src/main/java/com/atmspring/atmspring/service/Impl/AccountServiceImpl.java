@@ -1,12 +1,12 @@
-package com.atmspring.atmspring.Service.Impl;
+package com.atmspring.atmspring.service.Impl;
 
-import com.atmspring.atmspring.Exception.InvalidPasswordException;
-import com.atmspring.atmspring.Exception.NotFoundException;
-import com.atmspring.atmspring.Model.Account;
-import com.atmspring.atmspring.Model.Enums.AccountType;
-import com.atmspring.atmspring.Model.User;
-import com.atmspring.atmspring.Repository.AccountRepository;
-import com.atmspring.atmspring.Service.AccountService;
+import com.atmspring.atmspring.exception.InvalidPasswordException;
+import com.atmspring.atmspring.exception.NotFoundException;
+import com.atmspring.atmspring.model.Account;
+import com.atmspring.atmspring.model.Enums.AccountType;
+import com.atmspring.atmspring.model.User;
+import com.atmspring.atmspring.repository.AccountRepository;
+import com.atmspring.atmspring.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

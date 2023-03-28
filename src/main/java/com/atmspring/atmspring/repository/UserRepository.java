@@ -1,6 +1,6 @@
-package com.atmspring.atmspring.Repository;
+package com.atmspring.atmspring.repository;
 
-import com.atmspring.atmspring.Model.User;
+import com.atmspring.atmspring.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

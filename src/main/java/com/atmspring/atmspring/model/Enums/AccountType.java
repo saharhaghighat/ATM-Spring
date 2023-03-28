@@ -1,6 +1,6 @@
-package com.atmspring.atmspring.Model.Enums;
+package com.atmspring.atmspring.model.Enums;
 
-import com.atmspring.atmspring.Exception.InvalidInputException;
+import com.atmspring.atmspring.exception.InvalidInputException;
 
 public enum AccountType {
     SEPORDEH(2),JARI(1),GHARZOL_HASANEH(3);

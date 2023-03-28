@@ -1,4 +1,4 @@
-package com.atmspring.atmspring.Model.Enums;
+package com.atmspring.atmspring.model.Enums;
 
 public enum TransactionType {
     DEPOSIT(1),WITHDRAW(2);

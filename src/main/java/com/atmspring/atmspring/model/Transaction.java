@@ -1,15 +1,13 @@
-package com.atmspring.atmspring.Model;
+package com.atmspring.atmspring.model;
 
 
-import com.atmspring.atmspring.Model.Enums.TransactionType;
+import com.atmspring.atmspring.model.Enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "transaction")

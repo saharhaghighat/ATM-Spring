@@ -1,4 +1,4 @@
-package com.atmspring.atmspring.Model;
+package com.atmspring.atmspring.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

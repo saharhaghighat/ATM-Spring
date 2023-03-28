@@ -1,11 +1,11 @@
-package com.atmspring.atmspring.Service.Impl;
+package com.atmspring.atmspring.service.Impl;
 
-import com.atmspring.atmspring.Exception.AgeException;
-import com.atmspring.atmspring.Exception.InvalidInputException;
-import com.atmspring.atmspring.Exception.NotFoundException;
-import com.atmspring.atmspring.Model.User;
-import com.atmspring.atmspring.Repository.UserRepository;
-import com.atmspring.atmspring.Service.UserService;
+import com.atmspring.atmspring.exception.AgeException;
+import com.atmspring.atmspring.exception.InvalidInputException;
+import com.atmspring.atmspring.exception.NotFoundException;
+import com.atmspring.atmspring.model.User;
+import com.atmspring.atmspring.repository.UserRepository;
+import com.atmspring.atmspring.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

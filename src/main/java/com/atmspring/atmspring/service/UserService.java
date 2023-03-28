@@ -1,6 +1,6 @@
-package com.atmspring.atmspring.Service;
+package com.atmspring.atmspring.service;
 
-import com.atmspring.atmspring.Model.User;
+import com.atmspring.atmspring.model.User;
 
 import java.time.LocalDate;
 

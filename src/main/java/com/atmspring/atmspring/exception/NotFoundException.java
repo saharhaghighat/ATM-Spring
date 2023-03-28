@@ -1,4 +1,4 @@
-package com.atmspring.atmspring.Exception;
+package com.atmspring.atmspring.exception;
 
 public class NotFoundException extends  RuntimeException{
     public NotFoundException(String message) {

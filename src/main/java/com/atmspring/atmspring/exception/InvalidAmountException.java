@@ -1,4 +1,4 @@
-package com.atmspring.atmspring.Exception;
+package com.atmspring.atmspring.exception;
 
 public class InvalidAmountException extends RuntimeException {
     public static final String Message = "That's too much!";

@@ -1,6 +1,6 @@
-package com.atmspring.atmspring.Service;
+package com.atmspring.atmspring.service;
 
-import com.atmspring.atmspring.Model.Transaction;
+import com.atmspring.atmspring.model.Transaction;
 
 import java.io.IOException;
 import java.util.List;

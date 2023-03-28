@@ -1,9 +1,9 @@
-package com.atmspring.atmspring.Service.Impl;
+package com.atmspring.atmspring.service.Impl;
 
-import com.atmspring.atmspring.Model.Transaction;
-import com.atmspring.atmspring.Repository.TransactionRepository;
-import com.atmspring.atmspring.Service.CsvService;
-import com.atmspring.atmspring.Service.TransactionService;
+import com.atmspring.atmspring.model.Transaction;
+import com.atmspring.atmspring.repository.TransactionRepository;
+import com.atmspring.atmspring.service.CsvService;
+import com.atmspring.atmspring.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
-package com.atmspring.atmspring.Service;
+package com.atmspring.atmspring.service;
 
-import com.atmspring.atmspring.Model.Account;
-import com.atmspring.atmspring.Model.User;
+import com.atmspring.atmspring.model.Account;
+import com.atmspring.atmspring.model.User;
 
 public interface AccountService {
     Account login(String cardNumber, String pass);
