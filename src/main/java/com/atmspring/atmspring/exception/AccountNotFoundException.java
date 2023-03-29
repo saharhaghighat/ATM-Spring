@@ -1,9 +1,10 @@
 package com.atmspring.atmspring.exception;
 
 
-public class AccountNotFoundException extends RuntimeException {
-    public static final String Message = "model.Account not found";
-    public AccountNotFoundException() {
-        super(Message);
+import org.springframework.http.HttpStatus;
+
+public class AccountNotFoundException extends BaseException {
+    public AccountNotFoundException(String message) {
+        super(message, HttpStatus.NOT_FOUND);
     }
 }

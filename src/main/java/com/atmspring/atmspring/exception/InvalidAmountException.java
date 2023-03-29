@@ -1,9 +1,10 @@
 package com.atmspring.atmspring.exception;
 
-public class InvalidAmountException extends RuntimeException {
-    public static final String Message = "That's too much!";
+import org.springframework.http.HttpStatus;
 
-    public InvalidAmountException() {
-        super(Message);
+public class InvalidAmountException extends BaseException {
+
+    public InvalidAmountException(String message) {
+        super(message,HttpStatus.BAD_REQUEST);
     }
 }

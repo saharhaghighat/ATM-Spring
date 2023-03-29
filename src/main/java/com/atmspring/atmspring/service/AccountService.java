@@ -1,12 +1,18 @@
 package com.atmspring.atmspring.service;
 
+import com.atmspring.atmspring.dto.AccountDTO;
+import com.atmspring.atmspring.dto.LoginDTO;
+import com.atmspring.atmspring.dto.MoneyTransferDTO;
 import com.atmspring.atmspring.model.Account;
 import com.atmspring.atmspring.model.User;
 
 public interface AccountService {
-    Account login(String cardNumber, String pass);
 
-    Account createAccount(User user, Integer Type, String password);
 
-    void moneyTransfer(String card1, String card2, double amount);
+    AccountDTO login(LoginDTO dto);
+
+    AccountDTO createAccount(AccountDTO dto);
+
+
+    void moneyTransfer(MoneyTransferDTO dto);
 }

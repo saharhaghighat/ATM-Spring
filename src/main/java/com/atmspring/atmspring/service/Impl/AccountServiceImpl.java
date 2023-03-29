@@ -1,10 +1,11 @@
 package com.atmspring.atmspring.service.Impl;
 
-import com.atmspring.atmspring.exception.InvalidPasswordException;
+import com.atmspring.atmspring.dto.AccountDTO;
+import com.atmspring.atmspring.dto.LoginDTO;
+import com.atmspring.atmspring.dto.MoneyTransferDTO;
 import com.atmspring.atmspring.exception.NotFoundException;
+import com.atmspring.atmspring.mapper.AccountMapper;
 import com.atmspring.atmspring.model.Account;
-import com.atmspring.atmspring.model.Enums.AccountType;
-import com.atmspring.atmspring.model.User;
 import com.atmspring.atmspring.repository.AccountRepository;
 import com.atmspring.atmspring.service.AccountService;
 import lombok.RequiredArgsConstructor;
@@ -17,33 +18,33 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
     private final AccountRepository accountRepository;
+    private final UserServiceImpl userService;
+    private final AccountMapper accountMapper;
 
     @Override
-    public Account login(String cardNumber, String pass) {
-        Account account = this.accountRepository.findByCard_CardNumber(cardNumber).orElseThrow(() -> {
-            throw new NotFoundException("Account not found");
-        });
-        if (account.getCard().Validation(pass))
-            return account;
-        else
-            throw new InvalidPasswordException();
+    public AccountDTO login(LoginDTO dto) {
+        Account account = accountRepository.findByCard_CardNumber(dto.getCardNumber()).orElseThrow();
+        if (account.getCard().Validation(dto.getPassword()))
+            accountMapper.toDTO(account);
+        throw  new RuntimeException();
     }
 
     @Override
-    public Account createAccount(User user, Integer Type, String password) {
-        AccountType accountType = AccountType.getAccountType(Type);
-        Account account = new Account(user, accountType, password);
-        accountRepository.save(account);
-        return account;
+    public AccountDTO createAccount(AccountDTO dto) {
+        Account account=accountMapper.toEntity(dto);
+        return accountMapper.toDTO(accountRepository.save(account));
+
     }
 
     @Override
-    public void moneyTransfer(String card1, String card2, double amount) {
+    public void moneyTransfer(MoneyTransferDTO dto) {
         List<Account> accountList = new ArrayList<>();
-        this.accountRepository.findByCard_CardNumber(card1).ifPresentOrElse(account -> {
-            Account account2 = this.accountRepository.findByCard_CardNumber(card2).orElseThrow();
-            account.withDraw(amount);
-            account2.deposit(amount);
+        this.accountRepository.findByCard_CardNumber(dto.getCardNumb1()).ifPresentOrElse(account -> {
+            Account account2 = this.accountRepository.findByCard_CardNumber(dto.getCardNumb2()).orElseThrow();
+            account.withDraw(dto.getAmount());
+            account2.deposit(dto.getAmount());
+            accountList.add(account);
+            accountList.add(account2);
             accountRepository.saveAll(accountList);
         }, () -> {
             throw new NotFoundException("Not found Account with this Card Number");

@@ -1,9 +1,10 @@
 package com.atmspring.atmspring.exception;
 
-public class InvalidPasswordException extends RuntimeException{
-    public static final String message = "Password is incorrect";
+import org.springframework.http.HttpStatus;
 
-    public InvalidPasswordException() {
-        super(message);
+public class InvalidPasswordException extends BaseException{
+
+    public InvalidPasswordException(String message) {
+        super(message, HttpStatus.UNAUTHORIZED);
     }
 }

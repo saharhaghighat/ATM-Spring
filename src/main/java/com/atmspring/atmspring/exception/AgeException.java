@@ -1,8 +1,10 @@
 package com.atmspring.atmspring.exception;
 
-public class AgeException extends RuntimeException{
-    public static final String Message = "you are underage!";
-    public AgeException(){
-        super(Message);
+import org.springframework.http.HttpStatus;
+
+public class AgeException extends BaseException{
+
+    public AgeException(String message) {
+        super(message, HttpStatus.BAD_REQUEST);
     }
 }
