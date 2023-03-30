@@ -8,4 +8,8 @@ public interface UserService {
     User createUser(String fName, String lName, String nationalCode, LocalDate bDay);
 
     User findUserByNationalCode(String nationalCode);
+
+
+
+    User getById(Long id);
 }

@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
         }
 
         if (LocalDate.now().getYear() - bDay.getYear() < 18)
-            throw new AgeException();
+            throw new AgeException("age is proper");
         User user = new User(null, fName, lName, nationalCode, bDay);
         return userRepository.save(user);
     }
@@ -36,5 +36,10 @@ public class UserServiceImpl implements UserService {
         return this.userRepository.findByNationalCode(nationalCode).orElseThrow(() -> {
             throw new NotFoundException("Can't find User");
         });
+    }
+
+    @Override
+    public User getById(Long id){
+        return
     }
 }

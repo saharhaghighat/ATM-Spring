@@ -7,18 +7,21 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
 @Entity
 @Table(name = "account")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Account {
+@EntityListeners(value = AuditingEntityListener.class)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Account extends Auditing{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -95,9 +98,11 @@ public class Account {
                 transactions = new ArrayList<>();
             transactions.add(transaction);
         } else
-            throw new InvalidAmountException();
+            throw new InvalidAmountException("Invalid amount");
 
     }
+
+
 
 
 

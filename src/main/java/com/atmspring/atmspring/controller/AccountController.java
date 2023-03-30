@@ -1,8 +1,10 @@
 package com.atmspring.atmspring.controller;
 
 
+import com.atmspring.atmspring.config.SharedUserContext;
 import com.atmspring.atmspring.dto.AccountDTO;
 import com.atmspring.atmspring.dto.LoginDTO;
+import com.atmspring.atmspring.dto.LoginResponseDTO;
 import com.atmspring.atmspring.dto.MoneyTransferDTO;
 import com.atmspring.atmspring.service.AccountService;
 import jakarta.validation.Valid;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AccountController {
     private final AccountService accountService;
+    private final SharedUserContext sharedUserContext;
 
     @PostMapping(value = "")
     public ResponseEntity<AccountDTO> register(@Valid @RequestBody AccountDTO accountDTO){
@@ -27,12 +30,13 @@ public class AccountController {
     }
 
     @PostMapping(value = "/login")
-    public ResponseEntity<AccountDTO> login(@Valid @RequestBody LoginDTO dto){
+    public ResponseEntity<LoginResponseDTO> login(@Valid @RequestBody LoginDTO dto){
         return ResponseEntity.ok(accountService.login(dto));
     }
 
-    @PostMapping(value = "transaction")
+    @PostMapping(value = "transfer")
     public ResponseEntity<Void> moneyTransfer(@Valid @RequestBody MoneyTransferDTO dto){
+        dto.setCardNumb1(sharedUserContext.getAccNumb());
         accountService.moneyTransfer(dto);
         return new ResponseEntity<>(HttpStatus.OK);
     }
