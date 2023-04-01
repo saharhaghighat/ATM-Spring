@@ -9,6 +9,7 @@ import com.atmspring.atmspring.exception.NotFoundException;
 import com.atmspring.atmspring.mapper.AccountMapper;
 import com.atmspring.atmspring.model.Account;
 import com.atmspring.atmspring.repository.AccountRepository;
+import com.atmspring.atmspring.repository.GenericRepository;
 import com.atmspring.atmspring.service.AccountService;
 import com.atmspring.atmspring.utill.JwtUtils;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class AccountServiceImpl implements AccountService {
+public class AccountServiceImpl extends GenericServiceImpl<Account,Long> implements AccountService {
     private final AccountRepository accountRepository;
 
     private final UserServiceImpl userService;
@@ -65,4 +66,8 @@ public class AccountServiceImpl implements AccountService {
     }
 
 
+    @Override
+    protected GenericRepository<Account, Long> getRepository() {
+        return accountRepository;
+    }
 }
